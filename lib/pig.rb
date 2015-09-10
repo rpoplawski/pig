@@ -30,15 +30,6 @@ class Pig
   end
 
 
-
-
-
-
-
-
-
-
-
   def get_players
     puts "Getting player names. Type q when done."
     loop do
@@ -100,6 +91,21 @@ class Pig
  #           end
  #         end
  #end
+
+
+class Leaderboard
+  def initialize
+    puts "\n_____________________________________________________"
+    puts "                     LEADERBOARD"
+    puts "_______________________________________________________"
+
+
+    Score.order(average: :desc).limit(5).each do |x|
+      puts "\n\t#{x.name}:\t\t#{x.average}\n"
+    end
+    #puts Score.order(average: :desc)#.average#.limit(5)#.each do |x|
+  end
+end
 
 
 
