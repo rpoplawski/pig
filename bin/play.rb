@@ -1,5 +1,5 @@
-require_relative '../lib/pig'
-require_relative '../lib/hog'
+require_relative "../db/setup"
+require_relative '../lib/all'
 
 def select_from(hash)
   loop do
@@ -33,3 +33,5 @@ game.get_players
 
 game.play_round until game.winner
 puts "#{game.winner} wins!"
+
+
