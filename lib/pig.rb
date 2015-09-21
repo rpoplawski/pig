@@ -1,3 +1,5 @@
+#require_relative 'player'
+#require_relative 'leaderboard'
 
 class Pig
   def initialize
@@ -63,51 +65,86 @@ class Pig
       end
   end
 
+#########################
 
-
-
- #         players_and_scores.each do |player|
- #           sc = Score.find_by_name(player.name)
- #           puts "#{player.name}, your record is #{sc.total} games played, #{sc.wins} wins, #{sc.losses} losses, #{sc.ties} ties"
- #           puts "You've won #{sc.average}% of the time."
- #         end
-
- #         return
-
- #       else
- #         puts "\nGame over!  #{possible_winners.join} wins!\n\n"
- #         name = possible_winners.join
-
- #         s = Score.find_by_name(name)
- #         s.wins+=1
- #         s.save!
-
- #         players_and_scores.each do |player|
- #           unless possible_winners.include? player.name
- #              s = Score.find_by_name(player.name).losses+=1
- #              u = Score.find_by_name(player.name)
- #              u.losses+=1
- #              u.save!
- #           end
- #         end
- #end
-
-
-class Leaderboard
-  def initialize
-    puts "\n_____________________________________________________"
-    puts "                     LEADERBOARD"
-    puts "_______________________________________________________"
-
-
-    Score.order(average: :desc).limit(5).each do |x|
-      puts "\n\t#{x.name}:\t\t#{x.average}\n"
-    end
-    #puts Score.order(average: :desc)#.average#.limit(5)#.each do |x|
-  end
-end
-
-
+#def play
+#    players_and_scores = get_players
+#
+#    possible_winners = []
+#
+#    roll = 0
+#
+#    loop do
+#
+#      players_and_scores.each do |player|
+#        roll = roll player.name
+#        player.add_to_score roll
+#
+#        puts "\n#{player.name}, your total score thus far is #{player.score} points. Hit enter to continue.\n\n"
+#        puts "-------------------------------------------------------------------------------------------------"
+#        $stdin.gets
+#      end
+#
+#      players_and_scores.each do |player|
+#        if player.score >= Max
+#          possible_winners.push player.name
+#        end
+#      end
+#
+#      unless possible_winners.size == 0
+#        if possible_winners.size > 1
+#          #puts "\nIt's a tie between #{possible_winners.join(" and ")}! Game over.\n\n"
+#          players_and_scores.each do |player|
+#            t = Score.find_by_name(player.name)
+#            if possible_winners.include? player.name
+#              #t.ties+=1
+#              #t.save!
+#            else
+#              t.losses+=1
+#              t.save!
+#            end
+#          end
+#
+#          players_and_scores.each do |player|
+#            sc = Score.find_by_name(player.name)
+#            puts "#{player.name}, your record is #{sc.total} games played, #{sc.wins} wins, #{sc.losses} losses"
+#            puts "You've won #{sc.average}% of the time."
+#          end
+#
+#          return
+#
+#        if
+#          puts "\nGame over!  #{possible_winners.join} wins!\n\n"
+#          name = possible_winners.join
+#          #s = Score.find_by_name(name).wins increment by 1
+#          s = Score.find_by_name(name)
+#          s.wins+=1
+#          s.save!
+#
+#
+#          players_and_scores.each do |player|
+#            unless possible_winners.include? player.name
+#              #s = Score.find_by_name(player.name).losses increment by 1
+#              u = Score.find_by_name(player.name)
+#              u.losses+=1
+#              u.save!
+#            end
+#          end
+#
+#          players_and_scores.each do |player|
+#            sc = Score.find_by_name(player.name)
+#            puts "#{player.name}, your record is #{sc.total} games played, #{sc.wins} wins, #{sc.losses} losses, #{sc.ties} ties"
+#            puts "You've won #{sc.average}% of the time."
+#            a = Score.find_by_name(player.name)
+#            a.average = sc.average
+#            a.save!
+#          end
+#          return
+#        end
+#      end
+#    end
+#  end
+#end
 
 
   def take_turn player
@@ -128,5 +165,6 @@ end
       end
     end
   end
+
 end
 

@@ -1,6 +1,7 @@
 require_relative "../db/setup"
 require_relative '../lib/all'
 
+
 def select_from(hash)
   loop do
     hash.each do |key, value|

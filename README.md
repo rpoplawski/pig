@@ -26,8 +26,12 @@ This folder structure should be suitable for starting a project that uses a data
 
 
 ## Rundown
+----------------------------------------------
 
-```
+The user must be aable to play a game called 'pig'. Basically, the player rolls the dice and accrues points that add to successive rolls untiley roll a '1'. When a '1' is rolled, the player gets '0' points for that round and the turn is now handed to player 2, if that player exists. The first person to get to 100 point or more wins. The rules of the programs are rather sraight forward in that the game tells asks questions of the user and requests feedback. Execute this command and your in business!                  <ruby bin/play.rb>
+---------------------------------------------------
+
+``
 .
 ├── Gemfile             # Details which gems are required by the project
 ├── README.md           # This file

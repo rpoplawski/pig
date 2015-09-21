@@ -1,4 +1,4 @@
-class Win_loss_tracker < ActiveRecord::Base
+class AddScoresTable < ActiveRecord::Base
 # the purpose of this file is to track the wins and losses of each player
 
   def change
